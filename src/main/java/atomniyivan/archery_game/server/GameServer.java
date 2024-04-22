@@ -184,7 +184,7 @@ public class GameServer {
                         if (state == GameState.GAME_PAUSED) pause();
                         gameLogicUpdate();
                         sendGameInfoAction(Action.Type.UPDATE);
-                        Thread.sleep(20);
+                        Thread.sleep(10);
                     }
                     sendWinnerAction();
                 } catch (InterruptedException e) {

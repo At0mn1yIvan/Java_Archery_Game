@@ -1,16 +1,11 @@
 package atomniyivan.archery_game.hibernate;
 
 import atomniyivan.archery_game.models.Player;
-import javafx.application.Platform;
-import org.hibernate.LockMode;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import javax.persistence.LockModeType;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Scanner;
 
 
 public class Database {
@@ -64,43 +59,5 @@ public class Database {
             }
         }
         return leaderboard;
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        Session session = null;
-        Transaction tx = null;
-
-        try {
-            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            tx = session.beginTransaction();
-
-            Player existingPlayer = (Player) session.createQuery("FROM Player WHERE username = :username")
-                    .setParameter("username", name)
-                    .setLockMode(LockModeType.PESSIMISTIC_WRITE)
-                    .uniqueResult();
-
-            if (existingPlayer != null) {
-                existingPlayer.wins++;
-                session.update(existingPlayer);
-            } else {
-                tx.commit();
-                session.close();
-
-                session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-                tx = session.beginTransaction();
-
-                Player p = new Player(name, "#dc8a78");
-                p.wins++;
-                session.save(p);
-            }
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            if (session != null) session.close();
-        }
     }
 }

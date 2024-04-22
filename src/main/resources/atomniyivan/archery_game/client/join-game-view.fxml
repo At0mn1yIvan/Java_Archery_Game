@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="atomniyivan.archery_game.client.ClientController">
+  <children>
+    <Button layoutX="64.0" layoutY="146.0" mnemonicParsing="false" onAction="#onJoinButtonClick" prefHeight="32.0" prefWidth="173.0" text="В бой" textAlignment="CENTER">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+         <effect>
+            <Lighting diffuseConstant="1.16" specularConstant="1.13" specularExponent="29.2" surfaceScale="1.84">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+    </Button>
+    <TextField fx:id="nameTextField" alignment="CENTER" layoutX="64.0" layoutY="94.0" prefHeight="30.0" prefWidth="173.0" promptText="Введи имя">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX">
+               <color>
+                  <Color red="0.6578947305679321" green="0.6578947305679321" blue="0.6578947305679321" />
+               </color>
+            </DropShadow>
+         </effect>
+    </TextField>
+      <TextField accessibleRole="TEXT" alignment="CENTER" editable="false" layoutX="21.0" layoutY="14.0" prefHeight="45.0" prefWidth="259.0" style="-fx-background-color: lightblue;" text="Добро пожаловать, воин!">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextField>
+  </children>
+</AnchorPane>

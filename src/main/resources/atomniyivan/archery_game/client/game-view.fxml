@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="570.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="atomniyivan.archery_game.client.GameClient">
+    <children>
+        <AnchorPane layoutY="438.0" prefHeight="138.0" prefWidth="482.0" style="-fx-border-color: black; -fx-background-color: lightgray;">
+            <children>
+                <Button fx:id="start_game" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#startGame" prefHeight="77.0" prefWidth="100.0" text="Готов!">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.37" specularConstant="0.9" specularExponent="19.54" surfaceScale="1.28">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="0.03333333507180214" green="1.0" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button fx:id="attack" layoutX="214.0" layoutY="31.0" mnemonicParsing="false" onAction="#Shoot" prefHeight="77.0" prefWidth="100.0" text="→" textFill="#4c387c">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.37" specularConstant="0.9" specularExponent="19.54" surfaceScale="1.28">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="0.1556408405303955" green="0.6519868969917297" blue="0.9605262875556946" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button fx:id="stop" layoutX="114.0" layoutY="31.0" mnemonicParsing="false" onAction="#stopGame" prefHeight="77.0" prefWidth="100.0" text="||">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.37" specularConstant="0.9" specularExponent="19.54" surfaceScale="1.28">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="0.9862654209136963" green="1.0" blue="0.17592592537403107" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect></Button>
+            <Button fx:id="winners" layoutX="352.0" layoutY="31.0" mnemonicParsing="false" onAction="#showWinners" prefHeight="77.0" prefWidth="100.0" text="🏆">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.37" specularConstant="0.9" specularExponent="19.54" surfaceScale="1.28">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="1.0" blue="0.6309523582458496" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            </children>
+        </AnchorPane>
+
+              <AnchorPane fx:id="gameBar" layoutX="87.0" prefHeight="439.0" prefWidth="394.0" style="-fx-background-color: skyblue;">
+            <children>
+                <Line endX="16.0" endY="411.0" layoutX="210.0" layoutY="27.0" startX="16.0" startY="-27.0" />
+                <Line endX="69.0" endY="-57.0" layoutX="242.0" layoutY="56.0" startX="69.0" startY="382.0" />
+                <Circle fx:id="smallTarget" fill="#daa623" layoutX="312.0" layoutY="220.0" radius="22.0" stroke="BLACK" strokeType="INSIDE">
+               <effect>
+                  <Reflection fraction="0.62" topOpacity="0.3" />
+               </effect></Circle>
+                <Circle fx:id="bigTarget" fill="#a5fca5" layoutX="226.0" layoutY="220.0" radius="44.0" stroke="BLACK" strokeType="INSIDE">
+               <effect>
+                  <Reflection fraction="0.62" topOpacity="0.3" />
+               </effect></Circle>
+            </children>
+        </AnchorPane>
+        <VBox fx:id="playersMenu" alignment="CENTER" prefHeight="439.0" prefWidth="88.0" style="-fx-background-color: yellow;" />
+        <VBox fx:id="playersInfoMenu" alignment="TOP_CENTER" layoutX="481.0" prefHeight="576.0" prefWidth="181.0" style="-fx-border-color: black;" />
+    </children>
+</AnchorPane>

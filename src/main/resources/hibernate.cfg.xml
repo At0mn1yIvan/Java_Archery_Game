@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory>
+
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="dialect">org.sqlite.hibernate.dialect.SQLiteDialect</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="hibernate.connection.url">
+            jdbc:sqlite:game.db
+        </property>
+        <property name="hibernate.connection.username"/>
+        <property name="hibernate.connection.password"/>
+        <property name="hibernate.connection.autocommit">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+    </session-factory>
+</hibernate-configuration>
